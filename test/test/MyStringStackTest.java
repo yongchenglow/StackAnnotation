@@ -15,14 +15,14 @@ import stack.MyStringStack;
 
 public class MyStringStackTest extends TestCase {
 	private String s1, s2;
-	
+
 	public MyStringStackTest(String name) {
 		super(name);
 	}
 	@Before
 	public void setUp() throws Exception {
 		s1 = "Hello";
-		s2 = "there";	
+		s2 = "there";
 	}
 
 	@After
@@ -31,8 +31,9 @@ public class MyStringStackTest extends TestCase {
 
 	@Test
 	public void testPush() {
-		String o1 = null;  
+		String o1 = null;
 		MyStringStack stack = new MyStringStack();
+		stack.push (s1);
 		assertTrue (stack.isEmpty());
  		stack.push (s1);
         stack.push (s2);
@@ -49,10 +50,10 @@ public class MyStringStackTest extends TestCase {
             o1 = stack.pop ();
             fail ("Failed pop()");
         } catch (NoSuchElementException e) {}
-        
+
 		stack.push(s1);
 		assertFalse("Stack should not be empty after push()", stack.isEmpty());
-		
+
 		try {
 			o1 = stack.pop();
 		}catch (NoSuchElementException e) {
@@ -70,7 +71,7 @@ public class MyStringStackTest extends TestCase {
 		assertTrue (stack.isEmpty());
 		stack.push(s1);
 		assertFalse(stack.isEmpty());
-		
+
 		try {
 			s3 = stack.pop();
 		}catch (NoSuchElementException e) {
@@ -82,7 +83,7 @@ public class MyStringStackTest extends TestCase {
 
 	@org.junit.Test
 	public void testClear() {
-		String o1 = null;  
+		String o1 = null;
 		MyStringStack stack = new MyStringStack();
         assertTrue (stack.isEmpty());
         stack.push (s1);
@@ -96,10 +97,10 @@ public class MyStringStackTest extends TestCase {
         } catch (NoSuchElementException e) {}
 
 	}
-	
+
 	@Test
 	public void testStackNull() {
-        String o1 = null;  
+        String o1 = null;
         MyStringStack stack = new MyStringStack();
         assertTrue (stack.isEmpty());
         stack.push (null);
@@ -117,10 +118,10 @@ public class MyStringStackTest extends TestCase {
             fail ();
         } catch (NoSuchElementException e) {}
 	}
-	
+
 	@Test
 	public void testStackSequence() {
-        String o1 = null;  
+        String o1 = null;
         MyStringStack stack = new MyStringStack();
         assertTrue (stack.isEmpty());
         stack.push (s1);
@@ -136,7 +137,7 @@ public class MyStringStackTest extends TestCase {
         } catch (NoSuchElementException e) {  fail ();  }
         assertTrue (stack.isEmpty());
 	}
-	
+
 	public static junit.framework.Test suite() {
 		TestSuite suite = new TestSuite("Test for default package");
 		System.out.println ("Test for default package");
